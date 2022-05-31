@@ -20,18 +20,13 @@ import java.util.ArrayList
 class MainActivity : AppCompatActivity(){
     private lateinit var binding: ActivityMainBinding
     private lateinit var adapter: MovieAdapter
-    private val movie1:Movie=Movie("https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Logo_Grupo_Imagen_Multimedia.2016.png/245px-Logo_Grupo_Imagen_Multimedia.2016.png",
-        true,"","",
-        arrayOfNulls<Int>(0),1,"",
-        "","HOLAAAA",null,4.0,2,true,
-    0.0,3,3)
-
-    //private var movieList:ListMovies=ListMovies(0, arrayOf<Movie?>(movie1),0,0)
     private lateinit var movieList:ListMovies
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
         searchByName("")
 
     }
