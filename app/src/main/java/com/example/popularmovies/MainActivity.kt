@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity(),SearchView.OnQueryTextListener{
         CoroutineScope(Dispatchers.IO).launch {
             val call = getRetrofit().create(ApiService::class.java).getMovies("movie/popular?api_key=9c79e7d3bea364cfc8315fc3c29f01a9")
             val movies = call.body()
+            println(movies.toString())
             runOnUiThread {
                 if (call.isSuccessful) {
                     //show recyclerview
@@ -62,7 +63,7 @@ class MainActivity : AppCompatActivity(),SearchView.OnQueryTextListener{
     private fun searchByName(query:String){
         //Coroutine to make actions in a second thread
         CoroutineScope(Dispatchers.IO).launch {
-            val call = getRetrofit().create(ApiService::class.java).getMovies("/search/multi?api_key=9c79e7d3bea364cfc8315fc3c29f01a9&query=$query")
+            val call = getRetrofit().create(ApiService::class.java).getMovies("search/multi?api_key=9c79e7d3bea364cfc8315fc3c29f01a9&query=$query")
             val movies = call.body()
             println(movies.toString())
             runOnUiThread {
